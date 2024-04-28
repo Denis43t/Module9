@@ -20,7 +20,7 @@ public class Main {
         myLinkedList.add(5);
         myLinkedList.add(6);
         myLinkedList.add(7);
-        myLinkedList.remove(3);
+        myLinkedList.remove(6);
         myLinkedList.print();
     }
 }
