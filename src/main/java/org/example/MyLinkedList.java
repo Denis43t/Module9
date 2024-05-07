@@ -50,18 +50,18 @@ public class MyLinkedList<T> {
 
     public void remove(int index) {
         MyNode temp = head;
-        int counter=1;
-        if (counter-1==index){
-            head=temp.next;
+        int counter = 1;
+        if (counter - 1 == index) {
+            head = temp.next;
             return;
         }
-        while (temp!=null && temp.next!=null){
-            if (counter==index){
-                MyNode deleteNode=temp.next;
-                temp.next=temp.next.next;
-                deleteNode.next=null;
+        while (temp != null && temp.next != null) {
+            if (counter == index) {
+                MyNode deleteNode = temp.next;
+                temp.next = temp.next.next;
+                deleteNode.next = null;
             }
-            temp=temp.next;
+            temp = temp.next;
             counter++;
         }
     }

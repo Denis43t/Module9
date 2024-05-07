@@ -2,14 +2,14 @@ package org.example;
 
 import java.util.Arrays;
 
-public class MyArrayList<T> {
+public class MyQueue<T> {
 
     private T[] array;
     private int size;
     private int index = 0;
 
     //initialization array
-    public MyArrayList(int size) {
+    public MyQueue(int size) {
         @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[size];
         this.array = tempArray;
         this.size = size;
@@ -20,11 +20,9 @@ public class MyArrayList<T> {
         array = Arrays.copyOf(this.array, size);
     }
 
-    public void get(int index) {
-        if (this.index >= index) {
-            System.out.println(array[index]);
-        } else {
-            System.out.println("index bigger than size of array");
+    public void sout() {
+        for (int i = 0; i < index; i++) {
+            System.out.println(array[i]);
         }
     }
 
@@ -39,16 +37,34 @@ public class MyArrayList<T> {
         }
     }
 
-    public void remove(int index) {
-        for (int i = index + 1; i < this.index; i++) {
-            array[i - 1] = array[i];
-            array[i] = null;
-        }
-        this.index--;
+    public void size() {
+        System.out.println(size);
     }
 
     public void clear() {
         @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[size];
         this.array = tempArray;
+    }
+
+    public void peek() {
+        if (array != null && size > 0) {
+            System.out.println(array[0]);
+        } else {
+            System.out.println("Array is null");
+        }
+    }
+
+    public void poll() {
+        if (index > 0) {
+            System.out.println(array[0]);
+            for (int i = 0 + 1; i < index; i++) {
+                array[i - 1] = array[i];
+                array[i] = null;
+
+            }
+            index--;
+        } else {
+            System.out.println("Array is null");
+        }
     }
 }
