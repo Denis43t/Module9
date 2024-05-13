@@ -60,7 +60,6 @@ public class MyQueue<T> {
             for (int i = 0 + 1; i < index; i++) {
                 array[i - 1] = array[i];
                 array[i] = null;
-
             }
             index--;
         } else {
