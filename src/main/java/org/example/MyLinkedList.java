@@ -3,6 +3,16 @@ package org.example;
 import java.util.LinkedList;
 
 public class MyLinkedList<T> {
+    class MyNode<T> {
+        public T value;
+
+        public MyNode next;
+
+        public MyNode(T value) {
+            this.value = value;
+            next = null;
+        }
+    }
     private MyNode head;
     private int size = 0;
 
@@ -24,7 +34,7 @@ public class MyLinkedList<T> {
     public void print() {
         MyNode temp = head;
         while (temp != null) {
-            System.out.print(temp.data + " ");
+            System.out.print(temp.value + " ");
             temp = temp.next;
         }
     }
@@ -33,7 +43,7 @@ public class MyLinkedList<T> {
         MyNode temp = head;
         for (int i = 1; i <= index; i++) {
             if (i == index) {
-                System.out.println(temp.data);
+                System.out.println(temp.value);
             }
             temp = temp.next;
         }
@@ -53,6 +63,7 @@ public class MyLinkedList<T> {
         int counter = 1;
         if (counter - 1 == index) {
             head = temp.next;
+            size--;
             return;
         }
         while (temp != null && temp.next != null) {
@@ -60,6 +71,7 @@ public class MyLinkedList<T> {
                 MyNode deleteNode = temp.next;
                 temp.next = temp.next.next;
                 deleteNode.next = null;
+                size--;
             }
             temp = temp.next;
             counter++;
