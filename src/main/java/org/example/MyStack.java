@@ -67,17 +67,17 @@ public class MyStack<T> {
         }
     }
 
-    public void pop() {
-        if (index > 0) {
-            System.out.println(array[0]);
-            for (int i = 0 + 1; i < index; i++) {
-                array[i - 1] = array[i];
-                array[i] = null;
-            }
-            index--;
-        } else {
-            System.out.println("Array is null");
+    public T pop() throws ArrayIndexOutOfBoundsException {
+        if (index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         }
+        T returnendStatment = array[0];
+        for (int i = 0 + 1; i < index; i++) {
+            array[i - 1] = array[i];
+            array[i] = null;
+        }
+        index--;
+        return returnendStatment;
     }
 
     public void remove(int index) {

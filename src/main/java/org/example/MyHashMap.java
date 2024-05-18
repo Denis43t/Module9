@@ -73,14 +73,11 @@ public class MyHashMap<T> {
         System.out.println(size);
     }
 
-    public void get(Object key) {
+    public T get(Object key) {
         MyNode temp = head;
-        while (temp.next != null) {
-            if (temp.key.equals(key)) {
-                System.out.println("value:" + temp.value);
-                return;
-            }
+        while (temp.key.equals(key)) {
             temp = temp.next;
         }
+        return (T) temp.value;
     }
 }

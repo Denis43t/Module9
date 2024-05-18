@@ -20,12 +20,11 @@ public class MyArrayList<T> {
         array = Arrays.copyOf(this.array, size);
     }
 
-    public void get(int index) {
-        if (this.index >= index) {
-            System.out.println(array[index]);
-        } else {
-            System.out.println("index bigger than size of array");
+    public T get(int index) throws ArrayIndexOutOfBoundsException {
+        if (this.index < index || index < -1) {
+            throw new ArrayIndexOutOfBoundsException();
         }
+        return array[index];
     }
 
     public void add(T value) {
@@ -39,12 +38,14 @@ public class MyArrayList<T> {
         }
     }
 
-    public void remove(int index) {
+    public T remove(int index) {
+        T deletedElement = array[index];
         for (int i = index + 1; i < this.index; i++) {
             array[i - 1] = array[i];
             array[i] = null;
         }
         this.index--;
+        return deletedElement;
     }
 
     public void clear() {

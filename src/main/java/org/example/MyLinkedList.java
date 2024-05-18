@@ -1,19 +1,22 @@
 package org.example;
 
-import java.util.LinkedList;
-
 public class MyLinkedList<T> {
     class MyNode<T> {
         public T value;
 
+        public MyNode prev;
         public MyNode next;
 
         public MyNode(T value) {
             this.value = value;
+            prev = null;
             next = null;
         }
     }
+
     private MyNode head;
+
+    private MyNode tail;
     private int size = 0;
 
     public void add(T data) {
@@ -39,14 +42,12 @@ public class MyLinkedList<T> {
         }
     }
 
-    public void get(int index) {
+    public T get(int index) {
         MyNode temp = head;
         for (int i = 1; i <= index; i++) {
-            if (i == index) {
-                System.out.println(temp.value);
-            }
             temp = temp.next;
         }
+        return (T) temp.value;
     }
 
     public void size() {

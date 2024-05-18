@@ -20,7 +20,7 @@ public class MyQueue<T> {
         array = Arrays.copyOf(this.array, size);
     }
 
-    public void sout() {
+    public void print() {
         for (int i = 0; i < index; i++) {
             System.out.println(array[i]);
         }
@@ -54,16 +54,16 @@ public class MyQueue<T> {
         }
     }
 
-    public void poll() {
-        if (index > 0) {
-            System.out.println(array[0]);
-            for (int i = 0 + 1; i < index; i++) {
-                array[i - 1] = array[i];
-                array[i] = null;
-            }
-            index--;
-        } else {
-            System.out.println("Array is null");
+    public T poll() throws ArrayIndexOutOfBoundsException {
+        if (index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         }
+        T returnendStatment = array[0];
+        for (int i = 0 + 1; i < index; i++) {
+            array[i - 1] = array[i];
+            array[i] = null;
+        }
+        index--;
+        return returnendStatment;
     }
 }

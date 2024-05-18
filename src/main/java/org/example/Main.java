@@ -7,15 +7,16 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
 //        MyArrayList my = new MyArrayList(8);
-//        my.add(3);
+//        my.add(1);
 //        my.add(2);
 //        my.add(3);
-//        my.add(2);
-//        my.add(3);
-//        my.add(2);
-//        my.add(3);
-//        my.add(2);
-//        my.add(2);
+//        my.add(4);
+//        my.add(5);
+//        my.add(6);
+//        my.add(7);
+//        my.add(8);
+//        my.add(9);
+//        System.out.println(my.get(-1));
 //        MyLinkedList myLinkedList = new MyLinkedList();
 //        myLinkedList.add(1);
 //        myLinkedList.add(2);
@@ -24,13 +25,12 @@ public class Main {
 //        myLinkedList.add(5);
 //        myLinkedList.add(6);
 //        myLinkedList.add(7);
-//        myLinkedList.remove(1);
 //        myLinkedList.print();
 //        MyQueue queue = new MyQueue(3);
 //        queue.add(3);
 //        queue.add(2);
 //        queue.add(1);
-//        queue.sout();
+//        queue.print();
 //        queue.peek();
 //        System.out.println("-------");
 //        queue.poll();
@@ -44,17 +44,17 @@ public class Main {
 //        myStack.push(5);
 //        myStack.push(6);
 //        myStack.sout();
-        MyHashMap myHashMap=new MyHashMap();
-        myHashMap.add(1,123);
-        myHashMap.add(1,124);
-        myHashMap.add(2,126);
-        myHashMap.add(3,326);
-        myHashMap.add(5,526);
-        myHashMap.print();
-        System.out.println("===");
-        myHashMap.remove(1);
-        myHashMap.print();
-        myHashMap.size();
-        myHashMap.get(2);
+//        MyHashMap myHashMap=new MyHashMap();
+//        myHashMap.add(1,123);
+//        myHashMap.add(1,124);
+//        myHashMap.add(2,126);
+//        myHashMap.add(3,326);
+//        myHashMap.add(5,526);
+//        myHashMap.print();
+//        System.out.println("===");
+//        myHashMap.remove(1);
+//        myHashMap.print();
+//        myHashMap.size();
+//        System.out.println(myHashMap.get(2));
     }
 }
