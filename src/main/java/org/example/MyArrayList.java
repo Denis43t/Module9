@@ -43,8 +43,16 @@ public class MyArrayList<T> {
             index++;
         }
     }
+    public void print() {
+        for (int i = 0; i < index; i++) {
+            System.out.println(array[i]);
+        }
+    }
 
-    public T remove(int index) {
+    public T remove(int index) throws ArrayIndexOutOfBoundsException {
+        if (this.index < index || index < -1) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         T deletedElement = array[index];
         for (int i = index + 1; i < this.index; i++) {
             array[i - 1] = array[i];
@@ -57,11 +65,11 @@ public class MyArrayList<T> {
     public void clear() {
         @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[0];
         this.array = tempArray;
-        index=0;
-        size=0;
+        index = 0;
+        size = 0;
     }
 
     public int size() {
-        return size;
+        return index;
     }
 }

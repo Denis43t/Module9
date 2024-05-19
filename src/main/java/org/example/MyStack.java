@@ -20,7 +20,7 @@ public class MyStack<T> {
         array = Arrays.copyOf(this.array, size);
     }
 
-    public void sout() {
+    public void print() {
         for (int i = 0; i < index; i++) {
             System.out.println(array[i]);
         }
@@ -55,12 +55,14 @@ public class MyStack<T> {
     }
 
     public void clear() {
-        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[size];
+        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[0];
         this.array = tempArray;
+        index = 0;
+        size = 0;
     }
 
     public T peek() throws ArrayIndexOutOfBoundsException {
-        if (array == null && size < 0) {
+        if (array[0] == null || index <= 0 || array == null) {
             throw new ArrayIndexOutOfBoundsException();
         } else {
             return array[0];
@@ -68,7 +70,7 @@ public class MyStack<T> {
     }
 
     public T pop() throws ArrayIndexOutOfBoundsException {
-        if (index < 0) {
+        if (index <= 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
         T returnendStatment = array[0];
@@ -80,16 +82,16 @@ public class MyStack<T> {
         return returnendStatment;
     }
 
-    public T remove(int index) throws ArrayIndexOutOfBoundsException{
-        if (index<0){
+    public T remove(int index) throws ArrayIndexOutOfBoundsException {
+        if (this.index < index || index < -1) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        T deletedStatment=array[index];
+        T deletedElement = array[index];
         for (int i = index + 1; i < this.index; i++) {
             array[i - 1] = array[i];
             array[i] = null;
         }
         this.index--;
-        return deletedStatment;
+        return deletedElement;
     }
 }

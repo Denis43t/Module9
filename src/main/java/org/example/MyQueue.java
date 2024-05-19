@@ -16,8 +16,14 @@ public class MyQueue<T> {
     }
 
     private void grow() {
-        size *= 2;
-        array = Arrays.copyOf(this.array, size);
+        if (size==0){
+            size++;
+            array = Arrays.copyOf(this.array, size);
+        }
+        else {
+            size *= 2;
+            array = Arrays.copyOf(this.array, size);
+        }
     }
 
     public void print() {
@@ -42,12 +48,14 @@ public class MyQueue<T> {
     }
 
     public void clear() {
-        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[size];
+        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[0];
         this.array = tempArray;
+        index=0;
+        size=0;
     }
 
     public T peek() throws ArrayIndexOutOfBoundsException {
-        if (array == null && size < 0) {
+        if (array == null || index <= 0) {
             throw new ArrayIndexOutOfBoundsException();
         } else {
             return array[0];
@@ -55,7 +63,7 @@ public class MyQueue<T> {
     }
 
     public T poll() throws ArrayIndexOutOfBoundsException {
-        if (index < 0) {
+        if (index <= 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
         T returnendStatment = array[0];

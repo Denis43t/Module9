@@ -34,18 +34,24 @@ public class MyLinkedList<T> {
 
     }
 
-    public void print() {
+    public void print() throws ArrayIndexOutOfBoundsException {
         MyNode temp = head;
         while (temp != null) {
+            if(temp.value.equals(null)){
+                throw new ArrayIndexOutOfBoundsException();
+            }
             System.out.print(temp.value + " ");
             temp = temp.next;
         }
     }
 
-    public T get(int index) {
+    public T get(int index) throws ArrayIndexOutOfBoundsException {
         MyNode temp = head;
         for (int i = 1; i <= index; i++) {
             temp = temp.next;
+        }
+        if(temp.value.equals(null)){
+            throw new ArrayIndexOutOfBoundsException();
         }
         return (T) temp.value;
     }

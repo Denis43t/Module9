@@ -18,6 +18,18 @@ public class MyHashMap<T> {
     private MyNode head;
     private int size = 0;
 
+    private boolean keyChecker(T key) {
+        MyNode temp = head;
+        boolean chekedkey = false;
+        while (temp.next != null) {
+            if (temp.key.equals(key)) {
+                chekedkey = true;
+            }
+            temp = temp.next;
+        }
+        return chekedkey;
+    }
+
     public void add(T key, T value) {
         size++;
         MyNode toinsert = new MyNode(key, value);
@@ -45,7 +57,10 @@ public class MyHashMap<T> {
         }
     }
 
-    public void remove(T key) {
+    public void remove(T key) throws NullPointerException {
+        if (keyChecker(key) == false) {
+            throw new NullPointerException();
+        }
         MyNode temp = head;
         if (head.key.equals(key)) {
             head = temp.next;
@@ -73,10 +88,13 @@ public class MyHashMap<T> {
         return size;
     }
 
-    public T get(Object key) {
+    public T get(T key) throws ArrayIndexOutOfBoundsException {
         MyNode temp = head;
-        while (temp.key.equals(key)) {
+        while (!temp.key.equals(key)) {
             temp = temp.next;
+        }
+        if (!temp.key.equals(key)) {
+            throw new ArrayIndexOutOfBoundsException();
         }
         return (T) temp.value;
     }
