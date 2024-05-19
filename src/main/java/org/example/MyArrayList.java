@@ -16,8 +16,14 @@ public class MyArrayList<T> {
     }
 
     private void grow() {
-        size *= 2;
-        array = Arrays.copyOf(this.array, size);
+        if (size==0){
+            size++;
+            array = Arrays.copyOf(this.array, size);
+        }
+        else {
+            size *= 2;
+            array = Arrays.copyOf(this.array, size);
+        }
     }
 
     public T get(int index) throws ArrayIndexOutOfBoundsException {
@@ -49,7 +55,13 @@ public class MyArrayList<T> {
     }
 
     public void clear() {
-        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[size];
+        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[0];
         this.array = tempArray;
+        index=0;
+        size=0;
+    }
+
+    public int size() {
+        return size;
     }
 }

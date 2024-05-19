@@ -46,11 +46,11 @@ public class MyQueue<T> {
         this.array = tempArray;
     }
 
-    public void peek() {
-        if (array != null && size > 0) {
-            System.out.println(array[0]);
+    public T peek() throws ArrayIndexOutOfBoundsException {
+        if (array == null && size < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         } else {
-            System.out.println("Array is null");
+            return array[0];
         }
     }
 

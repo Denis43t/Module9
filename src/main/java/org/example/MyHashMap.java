@@ -69,8 +69,8 @@ public class MyHashMap<T> {
         size = 0;
     }
 
-    public void size() {
-        System.out.println(size);
+    public int size() {
+        return size;
     }
 
     public T get(Object key) {

@@ -6,17 +6,20 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-//        MyArrayList my = new MyArrayList(8);
-//        my.add(1);
-//        my.add(2);
-//        my.add(3);
-//        my.add(4);
-//        my.add(5);
-//        my.add(6);
-//        my.add(7);
-//        my.add(8);
-//        my.add(9);
-//        System.out.println(my.get(-1));
+        MyArrayList my = new MyArrayList(8);
+        my.add(0);
+        my.add(1);
+        my.add(2);
+        my.add(3);
+        my.add(4);
+        my.add(5);
+        my.add(6);
+        my.add(7);
+        my.add(8);
+        my.clear();
+        my.add(0);
+        my.add(1);
+        System.out.println(my.get(1));
 //        MyLinkedList myLinkedList = new MyLinkedList();
 //        myLinkedList.add(1);
 //        myLinkedList.add(2);
@@ -26,6 +29,7 @@ public class Main {
 //        myLinkedList.add(6);
 //        myLinkedList.add(7);
 //        myLinkedList.print();
+//        System.out.println(myLinkedList.size());
 //        MyQueue queue = new MyQueue(3);
 //        queue.add(3);
 //        queue.add(2);

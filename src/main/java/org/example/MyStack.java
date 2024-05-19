@@ -59,11 +59,11 @@ public class MyStack<T> {
         this.array = tempArray;
     }
 
-    public void peek() {
-        if (array != null && size > 0) {
-            System.out.println(array[0]);
+    public T peek() throws ArrayIndexOutOfBoundsException {
+        if (array == null && size < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         } else {
-            System.out.println("Array is null");
+            return array[0];
         }
     }
 
@@ -80,11 +80,16 @@ public class MyStack<T> {
         return returnendStatment;
     }
 
-    public void remove(int index) {
+    public T remove(int index) throws ArrayIndexOutOfBoundsException{
+        if (index<0){
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        T deletedStatment=array[index];
         for (int i = index + 1; i < this.index; i++) {
             array[i - 1] = array[i];
             array[i] = null;
         }
         this.index--;
+        return deletedStatment;
     }
 }

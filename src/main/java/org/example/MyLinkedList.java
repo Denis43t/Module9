@@ -50,8 +50,8 @@ public class MyLinkedList<T> {
         return (T) temp.value;
     }
 
-    public void size() {
-        System.out.println(size);
+    public int size() {
+        return size;
     }
 
     public void clear() {
