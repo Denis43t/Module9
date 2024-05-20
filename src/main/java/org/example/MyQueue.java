@@ -67,7 +67,7 @@ public class MyQueue<T> {
             throw new ArrayIndexOutOfBoundsException();
         }
         T returnendStatment = array[0];
-        for (int i = 0 + 1; i < index; i++) {
+        for (int i = 1; i < index; i++) {
             array[i - 1] = array[i];
             array[i] = null;
         }

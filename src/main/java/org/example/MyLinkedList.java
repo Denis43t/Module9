@@ -50,7 +50,7 @@ public class MyLinkedList<T> {
         for (int i = 1; i <= index; i++) {
             temp = temp.next;
         }
-        if(temp.value.equals(null)){
+        if(temp.value==(null)){
             throw new ArrayIndexOutOfBoundsException();
         }
         return (T) temp.value;
