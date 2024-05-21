@@ -15,7 +15,6 @@ public class MyLinkedList<T> {
     }
 
     private MyNode head;
-
     private MyNode tail;
     private int size = 0;
 
@@ -34,10 +33,10 @@ public class MyLinkedList<T> {
 
     }
 
-    public void print() throws ArrayIndexOutOfBoundsException {
+    public void print() {
         MyNode temp = head;
         while (temp != null) {
-            if(temp.value.equals(null)){
+            if(temp.value==(null)){
                 throw new ArrayIndexOutOfBoundsException();
             }
             System.out.print(temp.value + " ");
@@ -45,7 +44,7 @@ public class MyLinkedList<T> {
         }
     }
 
-    public T get(int index) throws ArrayIndexOutOfBoundsException {
+    public T get(int index) {
         MyNode temp = head;
         for (int i = 1; i <= index; i++) {
             temp = temp.next;
@@ -57,7 +56,7 @@ public class MyLinkedList<T> {
     }
 
     public int size() {
-        return size;
+        return this.size;
     }
 
     public void clear() {

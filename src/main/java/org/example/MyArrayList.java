@@ -10,23 +10,20 @@ public class MyArrayList<T> {
 
     //initialization array
     public MyArrayList(int size) {
-        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[size];
-        this.array = tempArray;
+        this.array = (T[]) new Object[size];
         this.size = size;
     }
 
     private void grow() {
-        if (size==0){
+        if (size == 0) {
             size++;
-            array = Arrays.copyOf(this.array, size);
-        }
-        else {
+        } else {
             size *= 2;
-            array = Arrays.copyOf(this.array, size);
         }
+        array = Arrays.copyOf(this.array, size);
     }
 
-    public T get(int index) throws ArrayIndexOutOfBoundsException {
+    public T get(int index) {
         if (this.index < index || index < -1) {
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -36,20 +33,18 @@ public class MyArrayList<T> {
     public void add(T value) {
         if (size <= index) {
             grow();
-            array[index] = value;
-            index++;
-        } else {
-            array[index] = value;
-            index++;
         }
+        array[index] = value;
+        index++;
     }
+
     public void print() {
         for (int i = 0; i < index; i++) {
             System.out.println(array[i]);
         }
     }
 
-    public T remove(int index) throws ArrayIndexOutOfBoundsException {
+    public T remove(int index) {
         if (this.index < index || index < -1) {
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -63,13 +58,12 @@ public class MyArrayList<T> {
     }
 
     public void clear() {
-        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[0];
-        this.array = tempArray;
+        this.array = (T[]) new Object[0];
         index = 0;
         size = 0;
     }
 
     public int size() {
-        return index;
+        return this.index;
     }
 }

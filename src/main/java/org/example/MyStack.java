@@ -10,13 +10,16 @@ public class MyStack<T> {
 
     //initialization array
     public MyStack(int size) {
-        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[size];
-        this.array = tempArray;
+        this.array = (T[]) new Object[size];
         this.size = size;
     }
 
     private void grow() {
-        size *= 2;
+        if (size == 0) {
+            size++;
+        } else {
+            size *= 2;
+        }
         array = Arrays.copyOf(this.array, size);
     }
 
@@ -50,26 +53,25 @@ public class MyStack<T> {
         }
     }
 
-    public void size() {
-        System.out.println(size);
+    public int size() {
+        return this.size;
     }
 
     public void clear() {
-        @SuppressWarnings("unchecked") final T[] tempArray = (T[]) new Object[0];
-        this.array = tempArray;
+        this.array = (T[]) new Object[0];
         index = 0;
         size = 0;
     }
 
-    public T peek() throws ArrayIndexOutOfBoundsException {
-        if (array[0] == null || index <= 0 || array == null) {
+    public T peek() {
+        if (array[0] == null || index <= 0) {
             throw new ArrayIndexOutOfBoundsException();
         } else {
             return array[0];
         }
     }
 
-    public T pop() throws ArrayIndexOutOfBoundsException {
+    public T pop() {
         if (index <= 0) {
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -82,7 +84,7 @@ public class MyStack<T> {
         return returnendStatment;
     }
 
-    public T remove(int index) throws ArrayIndexOutOfBoundsException {
+    public T remove(int index) {
         if (this.index < index || index < -1) {
             throw new ArrayIndexOutOfBoundsException();
         }
