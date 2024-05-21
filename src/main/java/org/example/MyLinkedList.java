@@ -72,7 +72,7 @@ public class MyLinkedList<T> {
             size--;
             return;
         }
-        while (temp != null && temp.next != null) {
+        while (temp.next != null) {
             if (counter == index) {
                 MyNode deleteNode = temp.next;
                 temp.next = temp.next.next;

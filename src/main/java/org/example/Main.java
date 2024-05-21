@@ -17,8 +17,9 @@ public class Main {
 //        myLinkedList.add(1);
 //        myLinkedList.add(2);
 //        myLinkedList.add(3);
-//        myLinkedList.clear();
-//        myLinkedList.get(0);
+//        myLinkedList.add(4);
+//        myLinkedList.remove(2);
+//        myLinkedList.print();
 //        MyQueue queue = new MyQueue(3);
 //        queue.add(3);
 //        queue.add(2);
@@ -35,10 +36,10 @@ public class Main {
 //        System.out.println("myStack.peek() = " + myStack.peek());
         MyHashMap myHashMap=new MyHashMap();
         myHashMap.put(1,123);
-        myHashMap.put(1,124);
         myHashMap.put(2,126);
         myHashMap.put(3,326);
-        myHashMap.put(5,526);
+        myHashMap.put(null,526);
+        myHashMap.remove(null);
         myHashMap.print();
         System.out.println("myHashMap.size() = " + myHashMap.size());
     }

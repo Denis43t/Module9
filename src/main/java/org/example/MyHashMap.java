@@ -2,13 +2,13 @@ package org.example;
 
 import java.util.HashMap;
 
-public class MyHashMap<T> {
-    class MyNode<T> {
-        public T value;
-        public T key;
+public class MyHashMap<K, V> {
+    class MyNode<K, V> {
+        public V value;
+        public K key;
         public MyNode next;
 
-        public MyNode(T key, T value) {
+        public MyNode(K key, V value) {
             this.value = value;
             this.key = key;
             next = null;
@@ -18,19 +18,7 @@ public class MyHashMap<T> {
     private MyNode head;
     private int size = 0;
 
-    private boolean keyChecker(T key) {
-        MyNode temp = head;
-        boolean chekedkey = false;
-        while (temp.next != null) {
-            if (temp.key.equals(key)) {
-                chekedkey = true;
-            }
-            temp = temp.next;
-        }
-        return chekedkey;
-    }
-
-    public void put(T key, T value) {
+    public void put(K key, V value) {
         size++;
         MyNode toinsert = new MyNode(key, value);
         if (head == null) {
@@ -42,11 +30,10 @@ public class MyHashMap<T> {
             temp = temp.next;
 
         }
-        if (temp.key.equals(toinsert.key)) {
+        if (temp.key != null && temp.key.equals(toinsert.key)) {
             temp.value = value;
             size--;
-        }
-        else {
+        } else {
             temp.next = toinsert;
         }
     }
@@ -59,18 +46,26 @@ public class MyHashMap<T> {
         }
     }
 
-    public void remove(T key) {
-        if (keyChecker(key) == false) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
+    public void remove(K key) {
         MyNode temp = head;
-        if (head.key.equals(key)) {
+        if (head.key != null && head.key.equals(key)) {
+            head = temp.next;
+            size--;
+            return;
+        }  if (temp.key == null) {
             head = temp.next;
             size--;
             return;
         }
         while (temp.next != null) {
-            if (temp.key.equals(key)) {
+            if (temp.next.key != null && temp.next.key.equals(key)) {
+                MyNode deleteNode = temp.next;
+                temp.next = temp.next.next;
+                deleteNode.next = null;
+                size--;
+                return;
+            }
+            if (temp.next.key == null) {
                 MyNode deleteNode = temp.next;
                 temp.next = temp.next.next;
                 deleteNode.next = null;
@@ -90,14 +85,14 @@ public class MyHashMap<T> {
         return this.size;
     }
 
-    public T get(T key) {
+    public V get(K key) {
         MyNode temp = head;
-        while (!temp.key.equals(key)) {
+        while (temp.key != null && !temp.key.equals(key)) {
             temp = temp.next;
         }
-        if (!temp.key.equals(key)) {
+        if (temp.key != null && !temp.key.equals(key)) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        return (T) temp.value;
+        return (V) temp.value;
     }
 }
