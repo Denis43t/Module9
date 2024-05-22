@@ -51,9 +51,6 @@ public class MyHashMap<K, V> {
     }
 
     public V remove(K key) {
-        if (head==null){
-            throw new ArrayIndexOutOfBoundsException();
-        }
         V deletedStatment=null;
         MyNode temp = head;
         if (head!=null && head.key != null && head.key.equals(key)) {
@@ -67,7 +64,7 @@ public class MyHashMap<K, V> {
             size--;
             return deletedStatment;
         }
-        while (temp.next != null) {
+        while (temp!=null && temp.next != null) {
             if (temp.next.key != null && temp.next.key.equals(key)) {
                 deletedStatment=(V)temp.next.value;
                 MyNode deleteNode = temp.next;
