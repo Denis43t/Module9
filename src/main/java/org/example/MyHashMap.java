@@ -33,6 +33,10 @@ public class MyHashMap<K, V> {
         if (temp.key != null && temp.key.equals(toinsert.key)) {
             temp.value = value;
             size--;
+        }
+        else if (temp.key==null) {
+            temp.value = value;
+            size--;
         } else {
             temp.next = toinsert;
         }
