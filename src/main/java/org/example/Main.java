@@ -39,7 +39,8 @@ public class Main {
         myHashMap.put(2,126);
         myHashMap.put(null,326);
         myHashMap.put(null,526);
-        myHashMap.print();
+        myHashMap.remove(null);
+        System.out.println("myHashMap.get(22) = " + myHashMap.get(22));
         System.out.println("myHashMap.size() = " + myHashMap.size());
     }
 }

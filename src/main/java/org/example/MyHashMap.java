@@ -91,11 +91,11 @@ public class MyHashMap<K, V> {
 
     public V get(K key) {
         MyNode temp = head;
-        while (temp.key != null && !temp.key.equals(key)) {
+        while (temp!=null && temp.key != null && !temp.key.equals(key)) {
             temp = temp.next;
         }
-        if (temp.key != null && !temp.key.equals(key)) {
-            throw new ArrayIndexOutOfBoundsException();
+        if (temp==null){
+            return null;
         }
         return (V) temp.value;
     }
