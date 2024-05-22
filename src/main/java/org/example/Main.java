@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -34,13 +35,14 @@ public class Main {
 //        System.out.println("myStack.pop() = " + myStack.pop());
 //        System.out.println("myStack.pop() = " + myStack.pop());
 //        System.out.println("myStack.peek() = " + myStack.peek());
-        MyHashMap myHashMap=new MyHashMap();
-        myHashMap.put(1,123);
-        myHashMap.put(2,126);
-        myHashMap.put(null,326);
-        myHashMap.put(null,526);
-        myHashMap.remove(null);
-        System.out.println("myHashMap.get(22) = " + myHashMap.get(22));
-        System.out.println("myHashMap.size() = " + myHashMap.size());
+        MyHashMap<Integer, Integer> map = new MyHashMap<>();
+        map.put(1, 111);
+        map.put(2, 222);
+        map.put(null, 88888);
+        map.put(null, 99999);
+        System.out.println("map.remove(1) = " + map.remove(1));
+        System.out.println("map.remove(2) = " + map.remove(2));
+        System.out.println("map.remove(null) = " + map.remove(null));
+        System.out.println("map.remove(4) = " + map.remove(4));
     }
 }

@@ -50,34 +50,43 @@ public class MyHashMap<K, V> {
         }
     }
 
-    public void remove(K key) {
+    public V remove(K key) {
+        if (head==null){
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        V deletedStatment=null;
         MyNode temp = head;
-        if (head.key != null && head.key.equals(key)) {
+        if (head!=null && head.key != null && head.key.equals(key)) {
+            deletedStatment=(V)temp.value;
             head = temp.next;
             size--;
-            return;
-        }  if (temp.key == null) {
+            return deletedStatment;
+        }  if (head!=null && temp.key == null) {
+            deletedStatment=(V)temp.value;
             head = temp.next;
             size--;
-            return;
+            return deletedStatment;
         }
         while (temp.next != null) {
             if (temp.next.key != null && temp.next.key.equals(key)) {
+                deletedStatment=(V)temp.next.value;
                 MyNode deleteNode = temp.next;
                 temp.next = temp.next.next;
                 deleteNode.next = null;
                 size--;
-                return;
+                return deletedStatment;
             }
             if (temp.next.key == null) {
+                deletedStatment=(V)temp.next.value;
                 MyNode deleteNode = temp.next;
                 temp.next = temp.next.next;
                 deleteNode.next = null;
                 size--;
-                return;
+                return deletedStatment;
             }
             temp = temp.next;
         }
+        return deletedStatment;
     }
 
     public void clear() {
@@ -94,9 +103,14 @@ public class MyHashMap<K, V> {
         while (temp!=null && temp.key != null && !temp.key.equals(key)) {
             temp = temp.next;
         }
-        if (temp==null){
+        if (temp!=null && temp.key!=null && temp.key.equals(key)){
+            return (V) temp.value;
+        }
+        if (temp!=null && temp.key==key){
+            return (V) temp.value;
+        }
+        else {
             return null;
         }
-        return (V) temp.value;
     }
 }
